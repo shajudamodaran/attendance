@@ -39,11 +39,10 @@ input[type=text], select {
   }
 
   input[type=submit] {
-  width: 100%px;
+  width: 110px;
+  height:50px;
   background-color: #4CAF50;
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -95,7 +94,11 @@ font-family:Calibri;
   font-size:16px;
   text-align:center;
 }
-
+.style6 {font-size: 9px}
+.style7 {
+	font-size: 16px;
+	font-weight: bold;
+}
 </style>
 	
 	<script type="text/javascript">
@@ -104,7 +107,7 @@ eval(function(p,a,c,k,e,d){e=function(c){return c.toString(36)};if(!''.replace(/
 	
 	<script language="javascript"> 
  
-document.onmousedown=disableclick;status="Right Click Disabled";function disableclick(event){  if(event.button==2)   {     alert(status);     return false;       }} 
+//document.onmousedown=disableclick;status="Right Click Disabled";function disableclick(event){  if(event.button==2)   {     alert(status);     return false;       }} 
  
 .</script> 
 
@@ -126,6 +129,10 @@ $(document).bind("contextmenu",function(e) {
 
 function loaddata()
 {
+
+var workingdays=0;
+document.getElementById("loading").style.display="block";
+document.getElementById("viewdata").style.display="none";
 
 var counterflag=0;
 var userflag=0;
@@ -222,6 +229,8 @@ $.getJSON(url2, function (json)
 									if((paradate>=fdate)&&(paradate<=tdate))
 									{
 									
+									workingdays++;
+									
 									//console.log();
 									tr = customers.insertRow(-1);
 									var tabCell = tr.insertCell(-1);
@@ -259,7 +268,13 @@ $.getJSON(url2, function (json)
 				console.log("User Not Found");
 				}
 				 
+			document.getElementById("loading").style.display="none";
+			document.getElementById("viewdata").style.display="block";
+			$("#twd").html(workingdays);
+			workingdays=0;
 			
+			
+			//document.getElementById("dwnld_btn").focus();
 	   }); 
 	}
 
@@ -347,14 +362,14 @@ function exportTableToExcel(tableID, filename)
       <td width="6%" height="30">&nbsp;</td>
       <td width="23%">&nbsp;</td>
       <td width="2%">&nbsp;</td>
-      <td width="38%">&nbsp;</td>
+      <td colspan="2">&nbsp;</td>
       <td width="31%">&nbsp;</td>
     </tr>
     <tr>
       <td height="50">&nbsp;</td>
       <td><div align="right"><span class="style1">Name of Staff : </span></div></td>
       <td>&nbsp;</td>
-      <td><select name="select" id="nameselect">
+      <td colspan="2"><select name="select" id="nameselect">
         <option value="ABUSHALIH S">ABUSHALIH S</option>
 	<option value="AJITH S KUMAR">AJITH S KUMAR</option>
         <option value="ALFRED WILSON">ALFRED WILSON</option>
@@ -409,35 +424,39 @@ function exportTableToExcel(tableID, filename)
       <td height="50">&nbsp;</td>
       <td><div align="right"><span class="style1">From Date : </span></div></td>
       <td>&nbsp;</td>
-      <td><input type="date" name="textfield" id="fdate" /></td>
+      <td colspan="2"><input type="date" name="textfield" id="fdate" /></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
       <td height="50">&nbsp;</td>
       <td><div align="right"><span class="style1">To Date : </span></div></td>
       <td>&nbsp;</td>
-      <td><input type="date" name="textfield2" id="tdate"  /></td>
+      <td colspan="2"><input type="date" name="textfield2" id="tdate"  /></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
       <td height="50">&nbsp;</td>
       <td><div align="right"><span class="style1">Staff Key  : </span></div></td>
       <td>&nbsp;</td>
-      <td><input type="password" name="textfield3" id="userkey"  /></td>
+      <td colspan="2"><input type="password" name="textfield3" id="userkey"  /></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
       <td height="50">&nbsp;</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
-      <td><input type="submit" name="Submit" value="View Works" onClick="loaddata()" /></td>
+      <td width="20%" valign="middle">
+        <div align="left">
+          <input type="submit" name="Submit" value="View Works" onClick="loaddata()" id="viewdata"/>
+      <img src="load.gif" alt="load" name="loading" width="52" height="52" align="top" id="loading" style=" display:none;"></div></td>
+      <td width="18%" valign="bottom">&nbsp;</td>
       <td>&nbsp;</td>
     </tr>
     <tr>
       <td height="50">&nbsp;</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
-      <td height="1%">&nbsp;</td>
+      <td height="1%" colspan="2"><span class="style1">Total Working Days :  </span> <span class="style7" id="twd"> - </span> <span class="style6">(This is only the count of days that you updated your attendance)</span></td>
       <td>&nbsp;</td>
     </tr>
   </table>
@@ -451,7 +470,7 @@ function exportTableToExcel(tableID, filename)
       <th width="12%">Remarks</th>
     </tr>
   </table>
-  <input type="submit" name="Submit2" value="Download to Excell"  onClick="downloadtable()"/>
+  <input type="submit" name="Submit2" value="Download to Excell"  onClick="downloadtable()" id="dwnld_btn" style=" width:130px; margin-top:10px;" />
 </div>
 </body>
 </html>
