@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+<style>
+
+.one-edge-shadow {
+	-webkit-box-shadow: 0 8px 6px -6px  #999999;
+	   -moz-box-shadow: 0 8px 6px -6px #999999;
+	        box-shadow: 0 8px 6px -6px #999999;
+}
+
+.style1 {font-family: "Roboto Condensed"}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  
+  }
+  
+  input[type=password]
+  {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  
+  }
+
+  input[type=submit] {
+  width: 100%px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+ input[type=date] {
+  width: 100%px;
+  background-color: #cccccc;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+ 
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+#customers {
+font-family:Calibri;
+	border-collapse: collapse;
+	width: 100%;
+	text-align: center;
+	font-size: 12px;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+#customers td{
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size:13px;
+  word-wrap: break-word;
+}
+#customers tr:nth-child(even){background-color: #f2f2f2; }
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+  font-size:16px;
+  text-align:center;
+}
+
+</style>
+
+<script type="text/javascript">
+
+var passwords=["abu@iib123","ajith@iib985","alfred@iib858","ali@iib458","amal@iib569","anargha@iib469","anju@iib785","athira@iib486","athira@iib456","bayis@iib963","bijoy@iib777","bincy@iib7412","cat@iib852","dhanesh@iib418","dinisha@iib555","faseeh@iib468","fevin@iib007","francis@iib749","greeshma@iib369","iba@iib007","jamsheer@iib796	","jincy@iib429","linto@iib418","megha@iib4586","nandhana@iib893","narayanan@iib4563","navaneeth@iib222","nelvin@iib896","nimitha@iib729","nithya@iib5869","nitty@iib4862","preetha@iib852","reena@iib1591","reshma@iib7569	","sajitha@iib2255","sajith@iib2266","sandra@iib429","sarath@iib867","saritha@iib886","shaju@iib7725","sarvanth@iib789","shyamili@iib4869","tincy@iib7537","umesh@iib3921","varsha@iib1122","vishnu@iib2255","yeshu@iib78965"];
+
+var usernames=[ "ABUSHALIH S","AJITH S KUMAR","ALFRED WILSON","ALI AKBAR T K","AMAL P B","ANARGHA BABY","ANJU NITTO","ATHIRA K","ATHIRA PRADSAD","BAYIS","BIJOY P.J","BINCY RAJU","CATHERIN ANTONY","DHANESH DHARMARAJ","DINISHA C D","FASEEH TP","FEVIN C PAUL","FRANCIS","GREESHMA P MENON","IBRAHIM BADUSHA ASHARAF","JAMSHEER","JINCY  K J","LINTO","MEGHA V K","NANDHANA","NARAYANAN C J","NAVANEETH U","NELVIN TOMY","NIMITHA MANAF","NITHYA  K V","NITTYYMOL C S","PREETHA FRANCIS","REENA JOHN","RESHMA UNNIKRISHNAN","SAJITHA ASOK","SAJITHSIMON","SANDRA UNNIKRISHNAN","SARATH CR","SARITHA SASI","SHAJU P D","SRAVANTH AS","SYAMILY  P K","TINCY RAJU","UMESH K S","VARSHA T U","VISHNU K M","YESUDAS. A. A"];
+
+
+onload=function()
+{
+
+
+
+}
+
+function loaddata()
+{
+
+var counterflag=0;
+var userflag=0;
+
+
+var user=document.getElementById("nameselect").value;
+var fromdate=document.getElementById("fdate").value;
+var todate=document.getElementById("tdate").value;
+var userkey=document.getElementById("userkey").value;
+
+
+
+if(user=="")
+{
+alert("Please select any user");
+}
+else if(fromdate=="")
+{
+alert("Please select first date");
+}
+else if(todate=="")
+{
+alert("Please select last date");
+}
+else if(userkey=="")
+{
+alert("Please enter the user key");
+}
+else
+{
+for(var i=0; i<usernames.length; i++)
+{
+	if(user==usernames[i] && userkey==passwords[i])
+	{
+	console.log("User Founded");
+	counterflag=1;
+	}
+	else if(userkey=="admin123")
+	{
+	counterflag=1;
+	}
+	else
+	{
+	console.log("User Key not match");
+	}
+}
+
+	if(counterflag==1)
+	{
+	$("#customers").find("tr:gt(0)").remove();
+
+var script_url_readdata="https://script.google.com/macros/s/AKfycbzKbPwRUjO0Itw4-kEq6gWPhDr4wbIONpWzYoHw_vmK3jUx8ao/exec";
+var url2 = script_url_readdata+"?action=read";
+
+$.getJSON(url2, function (json) 
+			{
+			
+						for (var i = 0; i < json.records.length; i++) 
+							{
+								var C1=json.records[i].DateStamp;
+								var C2=json.records[i].Name_of_Staff;
+								var C3=json.records[i].WORK_TYPE;
+								var C4=json.records[i].Work_Details;
+								var C5=json.records[i].Total_working_hours;
+								var C6=json.records[i].Remarks;
+								
+									var date = new Date(C1);
+									year = date.getFullYear();
+									month = date.getMonth()+1;
+									dt = date.getDate();
+									var paradate=""+pad2(month)+"/"+pad2(dt)+"/"+pad2(year)+"";
+									
+									var date = new Date(fromdate);
+									year = date.getFullYear();
+									month = date.getMonth()+1;
+									dt = date.getDate();
+									var fdate=""+pad2(month)+"/"+pad2(dt)+"/"+pad2(year)+"";
+									
+									var date = new Date(todate);
+									year = date.getFullYear();
+									month = date.getMonth()+1;
+									dt = date.getDate();
+									var tdate=""+pad2(month)+"/"+pad2(dt)+"/"+pad2(year)+"";
+									
+									
+								//console.log(C2+","+user);
+								if(C2==user)
+								{
+								
+								userflag=1;
+								
+								//console.log(""+paradate+","+fdate+","+tdate+"");
+								
+									if((paradate>=fdate)&&(paradate<=tdate))
+									{
+									
+									//console.log();
+									tr = customers.insertRow(-1);
+									var tabCell = tr.insertCell(-1);
+									tabCell.innerHTML =paradate;
+									
+									tabCell = tr.insertCell(-1);
+									
+									tabCell.innerHTML =C2;
+									tabCell = tr.insertCell(-1);
+									
+									 tabCell.innerHTML =C3;
+									tabCell = tr.insertCell(-1);
+									
+									 tabCell.innerHTML =C4;
+									 tabCell = tr.insertCell(-1);
+									  
+									  tabCell.innerHTML =C5;
+									 tabCell = tr.insertCell(-1);
+									 
+									  tabCell.innerHTML =C6;
+									}
+									
+								}
+								else
+								{
+								
+								}
+								
+								
+				
+				   		  }
+						  
+				if(userflag==0)
+				{
+				console.log("User Not Found");
+				}
+				 
+			
+	   }); 
+	}
+
+}
+
+}//end of onClick function
+
+function pad2(number) {
+   
+    var str = '' + number;
+    while (str.length < 2) {
+        str = '0' + str;
+    }
+   
+    return str;
+
+}
+
+function downloadtable()
+{
+var user=document.getElementById("nameselect").value;
+var fromdate=document.getElementById("fdate").value;
+var todate=document.getElementById("tdate").value;
+var userkey=document.getElementById("userkey").value;
+
+exportTableToExcel("customers","Work Report of "+user+" from "+fromdate+" to "+todate+"");
+
+}
+
+
+function exportTableToExcel(tableID, filename)
+{
+    var downloadLink;
+    var dataType = 'application/vnd.ms-excel';
+    var tableSelect = document.getElementById(tableID);
+    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    
+    // Specify file name
+    filename = filename?filename+'.xls':'excel_data.xls';
+    
+    // Create download link element
+    downloadLink = document.createElement("a");
+    
+    document.body.appendChild(downloadLink);
+    
+    if(navigator.msSaveOrOpenBlob){
+        var blob = new Blob(['\ufeff', tableHTML], {
+            type: dataType
+        });
+        navigator.msSaveOrOpenBlob( blob, filename);
+    }
+	else
+	{
+        // Create a link to the file
+        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+    
+        // Setting the file name
+        downloadLink.download = filename;
+        
+        //triggering the function
+        downloadLink.click();
+    }
+}
+
+
+</script>
+
+
+</head>
+
+<body>
+<div style=" height: 117px; width:100%" class="one-edge-shadow">
+  <table width="100%" height="131" border="0" style="height: inherit; text-align: right; font-size: 14px;">
+    <tr>
+      <td width="257" height="127"><div align="left"><img src="IIB-logo-small.png" width="242" height="65" onclick="openNav()" /></div></td>
+      <td width="24" style="text-align: center; font-family: Arial;">&nbsp;</td>
+      <td width="113" style="text-align: center; font-family: Arial;">&nbsp;</td>
+      <td width="119" style="text-align: center"><a href="view.html"" style="text-decoration: none;"></a></td>
+      <td width="238" style="text-align: center">&nbsp;</td>
+      <td width="326" style="text-align: center"><div align="right"><img src="Skill _ NSDC Logo SMALL2.png" width="242" height="107" /></div></td>
+    </tr>
+  </table>
+  <table width="100%" border="0" cellspacing="0">
+    <tr>
+      <td width="6%" height="30">&nbsp;</td>
+      <td width="23%">&nbsp;</td>
+      <td width="2%">&nbsp;</td>
+      <td width="38%">&nbsp;</td>
+      <td width="31%">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="50">&nbsp;</td>
+      <td><div align="right"><span class="style1">Name of Staff : </span></div></td>
+      <td>&nbsp;</td>
+      <td><select name="select" id="nameselect">
+        <option value="ABUSHALIH S">ABUSHALIH S</option>
+        <option value="ALFRED WILSON">ALFRED WILSON</option>
+        <option value="ALI AKBAR T K">ALI AKBAR T K</option>
+        <option value="AMAL P B">AMAL P B</option>
+        <option value="ANARGHA BABY">ANARGHA BABY</option>
+        <option value="ANJU NITTO">ANJU NITTO</option>
+        <option value="ATHIRA K">ATHIRA K</option>
+        <option value="ATHIRA PRADSAD">ATHIRA PRADSAD</option>
+        <option value="BAYIS">BAYIS</option>
+        <option value="BIJOY P.J ">BIJOY P.J </option>
+        <option value="BINCY RAJU">BINCY RAJU</option>
+        <option value="CATHERIN ANTONY">CATHERIN ANTONY</option>
+        <option value="DHANESH DHARMARAJ">DHANESH DHARMARAJ</option>
+        <option value="DINISHA C D">DINISHA C D</option>
+        <option value="FASEEH TP">FASEEH TP</option>
+        <option value="FEVIN C PAUL">FEVIN C PAUL</option>
+        <option value="FRANCIS">FRANCIS</option>
+        <option value="GREESHMA P MENON">GREESHMA P MENON</option>
+        <option value="IBRAHIM BADUSHA ASHARAF">IBRAHIM BADUSHA ASHARAF</option>
+        <option value="JAMSHEER">JAMSHEER</option>
+        <option value="JINCY  K J">JINCY  K J</option>
+        <option value="LINTO">LINTO</option>
+        <option value="MEGHA V K">MEGHA V K</option>
+        <option value="NANDHANA">NANDHANA</option>
+        <option value="NARAYANAN C J">NARAYANAN C J</option>
+        <option value="NAVANEETH U">NAVANEETH U</option>
+        <option value="NELVIN TOMY">NELVIN TOMY</option>
+        <option value="NIMITHA MANAF">NIMITHA MANAF</option>
+        <option value="NITHYA  K V">NITHYA  K V</option>
+        <option value="NITTYYMOL C S">NITTYYMOL C S</option>
+        <option value="PREETHA FRANCIS">PREETHA FRANCIS</option>
+        <option value="REENA JOHN">REENA JOHN</option>
+        <option value="RESHMA UNNIKRISHNAN">RESHMA UNNIKRISHNAN</option>
+        <option value="SAJITHA ASOK">SAJITHA ASOK</option>
+        <option value="SAJITHSIMON">SAJITHSIMON</option>
+        <option value="SANDRA UNNIKRISHNAN">SANDRA UNNIKRISHNAN</option>
+        <option value="SARATH CR">SARATH CR</option>
+        <option value="SARITHA SASI">SARITHA SASI</option>
+        <option value="SHAJU P D">SHAJU P D</option>
+        <option value="SRAVANTH AS">SRAVANTH AS</option>
+        <option value="SYAMILY  P K">SYAMILY  P K</option>
+        <option value="TINCY RAJU">TINCY RAJU</option>
+        <option value="UMESH K S">UMESH K S</option>
+        <option value="VARSHA T U">VARSHA T U</option>
+        <option value="VISHNU K M">VISHNU K M</option>
+        <option value="YESUDAS. A. A">YESUDAS. A. A</option>
+      </select>      </td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="50">&nbsp;</td>
+      <td><div align="right"><span class="style1">From Date : </span></div></td>
+      <td>&nbsp;</td>
+      <td><input type="date" name="textfield" id="fdate" /></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="50">&nbsp;</td>
+      <td><div align="right"><span class="style1">To Date : </span></div></td>
+      <td>&nbsp;</td>
+      <td><input type="date" name="textfield2" id="tdate"  /></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="50">&nbsp;</td>
+      <td><div align="right"><span class="style1">Staff Key  : </span></div></td>
+      <td>&nbsp;</td>
+      <td><input type="password" name="textfield3" id="userkey"  /></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="50">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="Submit" value="View Works" onClick="loaddata()" /></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="50">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td height="1%">&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+  <table width="100%" border="1" cellspacing="0" id="customers">
+    <tr>
+      <th width="10%">Date</th>
+      <th width="15%">Name of Staff </th>
+      <th width="15%">Work Type </th>
+      <th width="34%">Work Details </th>
+      <th width="14%">Total Working Hours </th>
+      <th width="12%">Remarks</th>
+    </tr>
+  </table>
+  <input type="submit" name="Submit2" value="Download to Excell"  onClick="downloadtable()"/>
+</div>
+</body>
+</html>
