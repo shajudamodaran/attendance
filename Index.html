@@ -101,8 +101,6 @@ font-family:Calibri;
 }
 </style>
 	
- 
-.</script> 
 
 <script type="text/javascript">
 
@@ -190,22 +188,22 @@ $.getJSON(url2, function (json)
 								var C5=json.records[i].Total_working_hours;
 								var C6=json.records[i].Remarks;
 								
-									var date = new Date(C1);
-									year = date.getFullYear();
-									month = date.getMonth()+1;
-									dt = date.getDate();
+									var date1 = new Date(C1);
+									year = date1.getFullYear();
+									month = date1.getMonth()+1;
+									dt = date1.getDate();
 									var paradate=""+pad2(month)+"/"+pad2(dt)+"/"+pad2(year)+"";
 									
-									var date = new Date(fromdate);
-									year = date.getFullYear();
-									month = date.getMonth()+1;
-									dt = date.getDate();
+									var date2 = new Date(fromdate);
+									year = date2.getFullYear();
+									month = date2.getMonth()+1;
+									dt = date2.getDate();
 									var fdate=""+pad2(month)+"/"+pad2(dt)+"/"+pad2(year)+"";
 									
-									var date = new Date(todate);
-									year = date.getFullYear();
-									month = date.getMonth()+1;
-									dt = date.getDate();
+									var date3 = new Date(todate);
+									year = date3.getFullYear();
+									month = date3.getMonth()+1;
+									dt = date3.getDate();
 									var tdate=""+pad2(month)+"/"+pad2(dt)+"/"+pad2(year)+"";
 									
 									
@@ -215,7 +213,7 @@ $.getJSON(url2, function (json)
 								
 								userflag=1;
 								
-								//console.log(""+paradate+","+fdate+","+tdate+"");
+								console.log(paradate);
 								
 									if((paradate>=fdate)&&(paradate<=tdate))
 									{
