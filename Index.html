@@ -254,9 +254,36 @@ $.getJSON(url2, function (json)
 									}
 									
 								}
-								else
+								else if (user=="All")
 								{
 								
+								userflag=1;
+								if((paradate>=fdate)&&(paradate<=tdate))
+									{
+									
+									workingdays++;
+									
+									//console.log();
+									tr = customers.insertRow(-1);
+									var tabCell = tr.insertCell(-1);
+									tabCell.innerHTML =paradate;
+									
+									tabCell = tr.insertCell(-1);
+									
+									tabCell.innerHTML =C2;
+									tabCell = tr.insertCell(-1);
+									
+									 tabCell.innerHTML =C3;
+									tabCell = tr.insertCell(-1);
+									
+									 tabCell.innerHTML =C4;
+									 tabCell = tr.insertCell(-1);
+									  
+									  tabCell.innerHTML =C5;
+									 tabCell = tr.insertCell(-1);
+									 
+									  tabCell.innerHTML =C6;
+									}
 								}
 								
 								
@@ -267,11 +294,15 @@ $.getJSON(url2, function (json)
 				{
 				console.log("User Not Found");
 				}
-				 
-			document.getElementById("loading").style.display="none";
+				else
+				{
+					document.getElementById("loading").style.display="none";
 			document.getElementById("viewdata").style.display="block";
 			$("#twd").html(workingdays);
 			workingdays=0;
+				}
+				 
+		
 			
 			
 			//document.getElementById("dwnld_btn").focus();
@@ -370,6 +401,7 @@ function exportTableToExcel(tableID, filename)
       <td><div align="right"><span class="style1">Name of Staff : </span></div></td>
       <td>&nbsp;</td>
       <td colspan="2"><select name="select" id="nameselect">
+	  <option value="All">--Show All--</option>
         <option value="ABUSHALIH S">ABUSHALIH S</option>
 	<option value="AJITH S KUMAR">AJITH S KUMAR</option>
         <option value="ALFRED WILSON">ALFRED WILSON</option>
